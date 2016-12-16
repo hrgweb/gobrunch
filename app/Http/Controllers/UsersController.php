@@ -57,6 +57,9 @@ class UsersController extends Controller
             $user->Gender = $request->Gender;
             $user->UserPic = ($avatar) ? $avatar : $request->UserPic;
             $user->isImage = $request->isImage;
+            $user->LastLoginDate = $request->LastLoginDate;
+            $user->GMT = $request->GMT;
+            $user->UTCTimeZone = $request->UTCTimeZone;
             $user->save();
 
             Auth::login($user, true);

@@ -25,9 +25,12 @@ var Register = {
 		this.update();
 	},
 	onLoad: function() {
-		this.d = new Date();
-
+		this.date = new Date();
 		this.getGender();
+
+		// console.log('date: ' + this.getFullDate());
+		// console.log('time: ' + this.getFullTime());
+		// console.log(this.dateTimeForSql());
 	},
 	getGender: function() {
 		var self = this;
@@ -119,7 +122,23 @@ var Register = {
 			}
 		});
 	},
+
+	/*=============== Working with Timezone & GMT ===============*/ 
+
+	getFullDate: function() {
+		var d = this.date;
+
+		var year = d.getFullYear(),
+		    month = d.getMonth() + 1,
+		    month = (month < 10) ? '0' + month : month;
+		    day = d.getDate();
+		    day = (day < 10) ? '0' + day : day;
+
+		return year + '-' + month + '-' + day;
+	},
 	getFullTime: function() {
+		var d = this.date;
+
 		var hour = d.getHours(),
 		    min = d.getMinutes(),
 		    min = (min < 10) ? '0' + min : min,
@@ -127,6 +146,26 @@ var Register = {
 
 		return hour + ':' + min + ':' + sec;
 	},
+	dateTimeForSql: function() {
+    	return this.getFullDate() + ' ' + this.getFullTime();
+    },
+    gmtHandler: function() {
+		var gmtRe = /GMT([\-\+]?\d{4})/; // Look for GMT, + or - (optionally), and 4 characters of digits (\d)
+		var d = new Date().toString();
+		var tz = gmtRe.exec(d)[1]; // timezone, i.e. -0700
+
+		return tz.substring(0, tz.length-2);
+	},
+	timezoneHandler: function() {
+		var tzRe = /\(([\w\s]+)\)/; // Look for "(", any words (\w) or spaces (\s), and ")"
+		var d = new Date().toString();
+		var tz = tzRe.exec(d)[1]; // timezone, i.e. "Pacific Daylight Time"
+
+		return tz;
+	},
+
+    /*=============== End of Timezone & GMT ===============*/ 
+
 	register: function() {
 		var self = this;
 
@@ -147,6 +186,9 @@ var Register = {
 			data.append('password', $('input[name=password]').val());
 			data.append('Gender', $('input[name=Gender]').val());
 			data.append('ImgType', self.imgType);
+			data.append('LastLoginDate', self.dateTimeForSql());
+			data.append('GMT', self.gmtHandler());
+			data.append('UTCTimeZone', self.timezoneHandler());
 
 			// check if user didn't choose a country which use default
 			if ($('select').val() == 'Country') {
@@ -179,6 +221,8 @@ var Register = {
 					.done(function(data) {
 						$('ul#errors').remove(); // hide ul#errors
 						if (data.success) window.location.href = 'lobby';
+						
+						// console.log(data);
 					})
 					.fail(function(error) {
 						self.errorTemplate(error);
