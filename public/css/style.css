@@ -1,0 +1,46 @@
+/*=============== Angular CSS ===============*/ 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.friend-info-btn a[ng-click],
+.friend-info-btn a[ng-click]:hover {
+    cursor: pointer;
+}
+
+body { overflow-x: hidden; }
+
+#modal-friend-request .modal-header { background: #005D68; }
+#modal-friend-request .user-avatar img {
+	width: 100px;
+	height: 100px;
+}
+
+/*tmp*/
+.who-online .carousel-inner { height: 500px; }  
+
+.request-wrapper { overflow-y: scroll; height: 600px; }
+#modal-friend-request .modal-content { overflow: hidden !important; height: auto !important; }
+
+
+/*=============== Errors Modal ===============*/ 
+#modal-errors .modal-content {
+	width: 450px;
+    margin: 15em auto;
+}
+#modal-errors .modal-header {
+	padding: 1em 2em;
+    background: #de5555;
+    color: #fff;
+}
+#modal-errors .modal-body { padding: 2em; }
+#modal-errors .modal-footer { background: #ECE8E8; }
+
+
+/*=============== Event Pagination ===============*/ 
+ul.pagination a:hover { cursor: pointer; }
+
+
+/*=============== Next Events - Buttons ===============*/ 
+.nxt-btn-join { background: #005d68; }
+.nxt-btn-enter { background: #debc05; }

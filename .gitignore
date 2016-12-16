@@ -1,0 +1,11 @@
+/node_modules
+/public/old
+/public/images
+/public/img
+/vendor
+/.idea
+Homestead.json
+Homestead.yaml
+.env
+.env.example
+.env.production
