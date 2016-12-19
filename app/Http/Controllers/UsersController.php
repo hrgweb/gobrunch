@@ -98,7 +98,7 @@ class UsersController extends Controller
             $this->updateIsOnlineColumn(1, $data['LastLoginDate'], $data['GMT'], $data['UTCTimeZone']);
 
             // Fire the events
-            // $this->eventsWhoseOnlineAndFriendList();
+            $this->eventsWhoseOnlineAndFriendList();
 
             return response()->json(['success' => true]);
         }
@@ -188,7 +188,7 @@ class UsersController extends Controller
         else {
             $result = Auth::user()->friends()->create($request->all());
             
-            // event(new FriendRequest($friendRequest));
+            event(new FriendRequest());
 
             return response()->json(['result' => $result]);
         }
@@ -324,6 +324,9 @@ class UsersController extends Controller
         // lets update is isOnline column set to 0
         DB::table('users')->where('id', auth()->user()->id)->update(['isOnline' => 0]);
         
+        // Fire the events
+        $this->eventsWhoseOnlineAndFriendList();
+
         Auth::logout();
 
         return redirect('home');

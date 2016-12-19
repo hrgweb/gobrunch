@@ -7,7 +7,7 @@
 			</div>
 			<div class="modal-body">
 				<p>
-					You have already sent a friend request to this person or this person sent you the friend request.
+					You have already sent a friend request to this person or this person sent you the friend request or you are friends already.
 				</p>
 			</div>
 			<div class="modal-footer">

@@ -279,53 +279,38 @@ app.controller('OnlineController', ['$scope', '$http', '$interval', function($sc
 		pusher = new Pusher('5621d1511b98346e743e', {
 			encrypted: true
 		});
-	}; //initPusher();
-
-
-	/*var notifyInvitedUser = function(data) {
-		// $scope.inviteDetails = data.invitation;
-		
-		// Get all the invitations
-		$http
-			.get('/event/getAllInvitation')
-			.then(function(response) {
-				console.log(response.data);
-			});
-		console.log(data);
-	};
-
-	var notifyInvitedUserRealTime = function(channelName) {
-		var channel = pusher.subscribe(channelName);
-
-		channel.bind('App\\Events\\NotifyUserContainer', notifyInvitedUser);
-	}; notifyInvitedUserRealTime('invite-event');
-	
-	var whoseOnlineRealTimeFn = function(channelName) {
-		var channel = pusher.subscribe(channelName);
-
-		channel.bind('App\\Events\\WhoseOnline', function(data) {
-			$scope.$apply(function() {
-				$scope.whoseOnline = data.onlineUsers;
-			});
-
-			// console.log($scope.whoseOnline);
-			console.log(data);
-		});
-	}; whoseOnlineRealTimeFn('online-users');
+	}; initPusher();
 
 	var friendsPromiseRealTimeFn = function(channelName) {
 		var channel = pusher.subscribe(channelName);
 
-		channel.bind('App\\Events\\FriendList', function(data) {
-			$scope.$apply(function() {
-				$scope.friendList = data.friendList;
-			});
-
-			// console.log($scope.friendList);
-			console.log(data);
+		channel.bind('App\\Events\\FriendList', function() {
+			friendsPromiseFn();
 		});
-	}; friendsPromiseRealTimeFn('friend-list');*/
+	}; friendsPromiseRealTimeFn('friend-list');
 
+	var whoseOnlineRealTimeFn = function(channelName) {
+		var channel = pusher.subscribe(channelName);
 
+		channel.bind('App\\Events\\WhoseOnline', function() {
+			whoseOnlineFn();
+		});
+	}; whoseOnlineRealTimeFn('online-users');
+
+	var friendRequestRealTimeFn = function(channelName) {
+		var channel = pusher.subscribe(channelName);
+
+		channel.bind('App\\Events\\FriendRequest', function() {
+			friendRequestFn();
+		});
+	}; friendRequestRealTimeFn('friend-request');
+
+	var friendNotificationRealTimeFn = function(channelName) {
+		var channel = pusher.subscribe(channelName);
+
+		channel.bind('App\\Events\\FriendNotification', function() {
+			notifyUser();
+		});
+	}; friendNotificationRealTimeFn('friend-notify');
 
 }]);

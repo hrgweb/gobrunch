@@ -30,7 +30,7 @@
 				<h4 class="modal-title" style="color: #fff;">Notification</h4>
 			</div>
 
-			{{-- <pre>@{{ notifications | json }}</pre> --}}
+			<pre>@{{ notifications | json }}</pre>
 
 			<div class="notification-wrapper">
 				<div class="list-of-notification" ng-repeat="notify in notifications">

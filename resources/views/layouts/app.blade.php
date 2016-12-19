@@ -41,7 +41,7 @@
 	<script src="{{ asset('js/vendor/angular.min.js') }}"></script>
 	<script src="{{ asset("js/app.js") }}"></script>
 	<script src="{{ asset('js/services/TimezoneService.js') }}"></script>
-	{{-- <script src="https://js.pusher.com/3.2/pusher.min.js"></script> --}}
+	<script src="https://js.pusher.com/3.2/pusher.min.js"></script>
 	
 	<script>
 		$(document).ready(function () {

@@ -14,16 +14,13 @@ class FriendRequest implements ShouldBroadcast
 {
     use InteractsWithSockets, SerializesModels;
 
-    public $friendRequest;
-
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($friendRequest)
+    public function __construct()
     {
-        $this->friendRequest = $friendRequest;
     }
 
     /**
@@ -33,7 +30,6 @@ class FriendRequest implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        // return new PrivateChannel('channel-name');
-        return ['friend-request'];
+        return new Channel('friend-request');
     }
 }

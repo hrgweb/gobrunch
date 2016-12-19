@@ -13,16 +13,13 @@ class WhoseOnline implements ShouldBroadcast
 {
     use InteractsWithSockets, SerializesModels;
 
-    public $onlineUsers;
-
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($online)
+    public function __construct()
     {
-        $this->onlineUsers = $online;
     }
 
     /**

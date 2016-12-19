@@ -13,16 +13,14 @@ class FriendList implements ShouldBroadcast
 {
     use InteractsWithSockets, SerializesModels;
 
-    public $friendList;
-
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($friendList)
+    public function __construct()
     {
-        $this->friendList = $friendList;
+        
     }
 
     /**

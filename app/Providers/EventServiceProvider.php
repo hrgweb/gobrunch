@@ -13,18 +13,18 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\FriendRequest' => [
-            'App\Listeners\notify',
-        ],
         'App\Events\WhoseOnline' => [
             'App\Listeners\ListOfOnline',
         ],
         'App\Events\FriendList' => [
             'App\Listeners\ListOfFriend',
         ],
-        'App\Events\NotifyUserContainer' => [
-            'App\Listeners\NotifyUserHandler',
-        ]
+        'App\Events\FriendRequest' => [
+            'App\Listeners\notify',
+        ],
+        'App\Events\FriendNotification' => [
+            'App\Listeners\FriedRequest',
+        ],
     ];
 
     /**
