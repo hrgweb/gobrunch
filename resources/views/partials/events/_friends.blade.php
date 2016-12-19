@@ -1,3 +1,11 @@
+<style>
+	#badge {
+		position: absolute;
+		right: 1.5em;
+		top: 1em;
+	}
+</style>
+
 <div class="friends-outer" ng-if="friendList.length">
 	<div class="container">
 		<!-- Title start -->
@@ -25,8 +33,8 @@
 									
 									<div class="friend-hover-info">
 										<div class="friend-hover-box">
-											<img src="images/country.png" class="country-img"/>
-											<h4>@{{ friend.Name }} <img src="images/level.png" /></h4>
+											<h4>@{{ friend.Name }} <img id="badge" src="images/level.png" /></h4>
+											<p>@{{ friend.Country }}</p>
 											<p>@{{ friend.Title }}</p>
 											<p>@{{ friend.Company }}</p>
 											<p>Venue: <a href="#">Lorem Ipsum</a></p>

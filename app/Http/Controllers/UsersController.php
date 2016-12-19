@@ -292,8 +292,9 @@ class UsersController extends Controller
 
         $userID = auth()->user()->id;
         return DB::select(DB::raw('
-            select Name, Title, Company, Gender, UserPic, isOnline
+            select Name, Title, Company, c.Country, Gender, UserPic, isOnline
             from users
+                join countries c on c.IDCountry = users.IDCountry
                 join
                     (
                         select IDUserOneID as id from friends
