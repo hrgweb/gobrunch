@@ -14,6 +14,7 @@
 
 <div class="row event-list" ng-repeat="event in allEvents">
 	{{-- <pre>@{{ event }} | @{{ event.DateOfEvent | json }}</pre> --}}
+	<pre>@{{ dislayGmtDateTime(event.DateOfEvent, event.TimeOfEvent) | date:'longDate' }}</pre>
 
 	<div class="col-md-5">
 		<div class="event-header">

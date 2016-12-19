@@ -1,11 +1,8 @@
 <style type="text/css">
 	ul#errors {
-		background: #D1515E;
-		color: #fff;
-		position: absolute;
-		top: 12em;
-		padding-left: 15em;
-		padding-right: 2em;
+	    background: #D1515E;
+	    color: #fff;
+	    padding-left: 3em;
 	}
 </style>
 

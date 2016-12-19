@@ -5,7 +5,7 @@
 @endsection
 
 @section ('top')
-	@include ('errors._list')
+	{{-- @include ('errors._list') --}}
 @endsection
 
 @section ('content')
@@ -83,6 +83,9 @@
 						</div>
 						
 						<div class="step2" style="display: none;">
+							{{-- error list --}}
+							@include ('errors._list')
+
 							<div class="form-group">
 								<input type="text" name="email" class="form-control" placeholder="Email" />
 							</div>
