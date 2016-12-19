@@ -5,8 +5,6 @@
 @endsection
 
 @section ('top')
-	@include ('partials.events._friend-request-popup-template')
-	@include ('partials.events._send-notification')
 	@include ('errors._modal-errors')
 @endsection
 
@@ -121,6 +119,8 @@
 <div ng-controller="OnlineController">
 	{{-- Friends --}}
 	@include ('partials.events._friends')
+	@include ('partials.events._friend-request-popup-template')
+	@include ('partials.events._send-notification')
 	@include ('partials.events._invite-popup')
 	@include ('partials.events._invite-notification')
 	

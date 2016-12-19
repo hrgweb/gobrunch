@@ -276,13 +276,12 @@ class UsersController extends Controller
         $userID = auth()->user()->id;
         $friendRequest = DB::table('friends')
                             ->join('users', 'users.id', '=', 'friends.ActionUserID')
-                            ->whereRaw(DB::raw('(IDUserOneID=' . $userID . ' OR IDUserTwoID=' . $userID . ')'))
-                            /*->where('IDUserOneID', $userID)
-                            ->orWhere('IDUserTwoID', $userID)*/
+                            ->whereRaw('(IDUserOneID=? OR IDUserTwoID=?)', [$userID, $userID])
                             ->where('IDConnectionStatus', 1)
-                            ->where('ActionUserID', '<>', $userID)
+                            ->where('ActionUserID', '!=', $userID)
                             ->select('friends.*', 'Name', 'Title', 'Company', 'Gender', 'UserPic')
                             ->get();
+
 
         return response()->json($friendRequest);   
     }
