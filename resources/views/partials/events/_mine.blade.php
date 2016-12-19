@@ -1,4 +1,4 @@
-<div class="my-events">
+<div class="my-events" ng-if="userEvents.length">
 	<div class="container">
 
 		{{-- IDEvent --}}

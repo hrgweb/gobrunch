@@ -1,4 +1,4 @@
-<div class="friends-outer">
+<div class="friends-outer" ng-if="friendList.length">
 	<div class="container">
 		<!-- Title start -->
 		<div class="row white-title">
