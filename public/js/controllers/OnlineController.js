@@ -127,6 +127,7 @@ app.controller('OnlineController', ['$scope', '$http', '$interval', function($sc
 	/**
 	 * WHOS ONLINE
 	 */
+	
 	$scope.sendFriendRequest = function(online) {
 		var tmpUserOne = $('input#userOne').val(),
 			userOne = tmpUserOne,
@@ -140,7 +141,8 @@ app.controller('OnlineController', ['$scope', '$http', '$interval', function($sc
 		var data = {
 			IDUserOneID: userOne,
 			IDUserTwoID: userTwo,
-			ActionUserID: tmpUserOne
+			ActionUserID: tmpUserOne,
+			IDConnectionStatus: 1
 		};
 
 		$http({
@@ -148,9 +150,8 @@ app.controller('OnlineController', ['$scope', '$http', '$interval', function($sc
 			url: '/user/addFriend',
 			data: data
 		}).then(function(response) {
-			console.log('sendFriendRequest: ' + response);
-		}, function(error) {
-			$('div#modal-errors').modal('show');
+			// Check if is already added as friend
+			if (response.data.isFriend) $('div#modal-errors').modal('show');
 		});
 	};
 

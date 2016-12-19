@@ -178,19 +178,20 @@ class UsersController extends Controller
 
     public function addFriend(Request $request)
     {
-        /*$actionUserID = $request->only('ActionUserID');
+        $friend = new Friend;
+        $isFriend = $friend->isAddedAsFriend($request->IDUserTwoID);
 
-        // check if user to add is currently online
-        $result = User::where('id', $actionUserID)->where('isOnline', 1)->count();
+        // Check if the selected user id already added as friend
+        if ($isFriend) {
+            return response()->json(['isFriend' => $isFriend]);
+        }
+        else {
+            $result = Auth::user()->friends()->create($request->all());
+            
+            // event(new FriendRequest($friendRequest));
 
-        return $result;*/
-        
-
-        $result = Auth::user()->friends()->create($request->all());
-
-        // event(new FriendRequest($friendRequest));
-
-        return response()->json(['result' => $result]);
+            return response()->json(['result' => $result]);
+        }
     }
 
     public function connectionStatus()
@@ -258,7 +259,7 @@ class UsersController extends Controller
             return response()->json($this->onlineUsers);
     }
 
-    public function isAddFriendAlready($idToBeAdded)
+    /*public function isAddFriendAlready($idToBeAdded)
     {
         $this->userID = auth()->user()->id;
 
@@ -266,7 +267,7 @@ class UsersController extends Controller
         $isAddedAsFriend = ($isAddedAsFriend > 0) ? true : false;
 
         return response()->json(['isAddedAsFriend' => $isAddedAsFriend]);
-    }
+    }*/
 
     public function friendRequest()
     {

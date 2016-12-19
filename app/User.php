@@ -64,6 +64,12 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($password);
     }
 
+    /*=============== CUSTOM METHODS ===============*/  
+
+    
+
+    /*=============== RELATIONSHIP ===============*/ 
+
     public function country()
     {
         return $this->belongsTo(Country::class, 'IDCountry');

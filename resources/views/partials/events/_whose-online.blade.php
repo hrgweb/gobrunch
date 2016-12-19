@@ -31,6 +31,8 @@
 							<p>Now At: <a href="#">@{{ online.SessionName }}</a></p>
 						</div>
 						<div class="friend-info-btn">
+							<input type="hidden" id="userOne" value="{{ auth()->user()->id }}">
+
 							<a ng-show="inviteIcon" ng-click="sendInvitation(online)">
 								<img src="{{ asset('images/hmsg.png') }}" />
 							</a>
