@@ -1,3 +1,13 @@
+<style type="text/css">
+	.friend-hover-box { position: relative; }
+
+	#badge {
+		position: absolute;
+		right: 1.5em;
+		top: 1em;
+	}
+</style>
+
 <!-- Wrapper for slides -->
 <div class="carousel-inner" role="listbox">
 	<div class="item active">
@@ -14,7 +24,7 @@
 
 					<div class="friend-hover-info">
 						<div class="friend-hover-box">
-							<h4>@{{ online.Name }} <img src="{{ asset('images/level.png') }}" /></h4>
+							<h4>@{{ online.Name }} <img src="{{ asset('images/level.png') }}" id="badge" /></h4>
 							<p>@{{ online.Country }}</p>
 							<p>@{{ online.Title }}</p>
 							<p>@{{ online.Company }}</p>
