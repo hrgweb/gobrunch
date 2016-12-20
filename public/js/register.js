@@ -149,19 +149,27 @@ var Register = {
 	dateTimeForSql: function() {
     	return this.getFullDate() + ' ' + this.getFullTime();
     },
-    gmtHandler: function() {
-		var gmtRe = /GMT([\-\+]?\d{4})/; // Look for GMT, + or - (optionally), and 4 characters of digits (\d)
-		var d = new Date().toString();
-		var tz = gmtRe.exec(d)[1]; // timezone, i.e. -0700
+	gmtHandler: function(){
+		var time = new Date().toTimeString().split(" "),
+			gmt = time[1].toUpperCase().replace("GMT","");
 
-		return tz.substring(0, tz.length-2);
+		gmt = gmt.substring(0, gmt.length - 2);
+
+		return gmt;
 	},
 	timezoneHandler: function() {
-		var tzRe = /\(([\w\s]+)\)/; // Look for "(", any words (\w) or spaces (\s), and ")"
-		var d = new Date().toString();
-		var tz = tzRe.exec(d)[1]; // timezone, i.e. "Pacific Daylight Time"
+		var nome = "",
+			time = new Date().toTimeString().split(" ");
 
-		return tz;
+		for (var i = 2; i < time.length; i++) {
+			if(i != time.length + 1 && i > 2){
+				nome += " ";
+			}
+			nome += time[i];
+		}
+		nome = nome.replace("(","").replace(")","");
+
+		return nome;
 	},
 
     /*=============== End of Timezone & GMT ===============*/ 
