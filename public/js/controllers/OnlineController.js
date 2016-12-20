@@ -132,6 +132,7 @@ app.controller('OnlineController', ['$scope', '$http', '$interval', function($sc
 		var tmpUserOne = $('input#userOne').val(),
 			userOne = tmpUserOne,
 			userTwo = online.id;
+			tmpUserTwo = userTwo;
 
 		if (userOne > userTwo) {
 			userOne = userTwo;
@@ -142,7 +143,8 @@ app.controller('OnlineController', ['$scope', '$http', '$interval', function($sc
 			IDUserOneID: userOne,
 			IDUserTwoID: userTwo,
 			ActionUserID: tmpUserOne,
-			IDConnectionStatus: 1
+			IDConnectionStatus: 1,
+			receiver_id: tmpUserTwo
 		};
 
 		$http({

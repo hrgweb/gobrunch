@@ -57,12 +57,16 @@ class UsersController extends Controller
             $user->Gender = $request->Gender;
             $user->UserPic = ($avatar) ? $avatar : $request->UserPic;
             $user->isImage = $request->isImage;
+            $user->isOnline = true;
             $user->LastLoginDate = $request->LastLoginDate;
             $user->GMT = $request->GMT;
             $user->UTCTimeZone = $request->UTCTimeZone;
             $user->save();
 
             Auth::login($user, true);
+
+            // Fire the events
+            $this->eventsWhoseOnlineAndFriendList();
 
             return response()->json(['success' => true]);
         }
@@ -179,13 +183,15 @@ class UsersController extends Controller
     public function addFriend(Request $request)
     {
         $friend = new Friend;
-        $isFriend = $friend->isAddedAsFriend($request->IDUserTwoID);
+        $isFriend = $friend->isAddedAsFriend($request->receiver_id);
 
         // Check if the selected user id already added as friend
         if ($isFriend) {
             return response()->json(['isFriend' => $isFriend]);
         }
         else {
+            array_pull($request, 'receiver_id'); // remove the key receiver_id
+
             $result = Auth::user()->friends()->create($request->all());
             
             event(new FriendRequest());
