@@ -212,6 +212,9 @@ class UsersController extends Controller
                 ->update(['IDConnectionStatus' => $this->connectStatusID]);
         });
 
+        // events fired
+        $this->eventsWhoseOnlineAndFriendList();
+
         return response()->json(['result' => $transactionResult]);
     }
 
