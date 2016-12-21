@@ -7,35 +7,8 @@
 @section ('content')
 	<!-- Header start -->
     <header class="home-login-header">
-		<!-- Navigation start -->
-		<nav class="navbar navbar-default">
-			<div class="container">
-				<!-- Brand Logo start -->
-				<a href="{{ url('/') }}" class="navbar-brand"><img src="images/logo.png"></a>
-				<!-- Brand Logo End -->
-				
-				<div class="navbar-header text-right">
-					<a href="{{ url('login') }}" class="btn btn-login">Login</a>
-					<button type="button" onclick="openNav()" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					  <span class="icon-bar"></span>
-					  <span class="icon-bar"></span>
-					  <span class="icon-bar"></span>
-					</button>
-				</div>
-				
-				<div id="myNav" class="overlay">
-					<div class="menu-logo">
-						<a href="{{ url('/') }}"><img src="images/logo.png" /></a>
-					</div>
-					
-					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-					
-					@include ('partials/pages._menu')
-				</div>
-				
-			</div>
-		</nav>
-		<!-- Navigation End -->
+		
+		@include ('partials/pages._menu')
 		
 		<div class="container">
 			<div class="row">

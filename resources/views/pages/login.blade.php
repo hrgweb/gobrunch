@@ -23,16 +23,7 @@
 					</button>
 				</div>
 				
-				<div id="myNav" class="overlay">
-					<div class="menu-logo">
-						<a href="index.html"><img src="images/logo.png" /></a>
-					</div>
-					
-					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-					
-					@include ('partials/pages._menu')
-				</div>
-				
+				@include ('partials/pages._menu')
 			</div>
 		</nav>
 		<!-- Navigation End -->
