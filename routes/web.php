@@ -1,6 +1,11 @@
 <?php
 
 // tmp
+/*Route::get('testemail', function() {
+	$email = new App\Mail\WelcomeToGoBrunch(new App\User(['Name' => 'Yeyoye', 'Company' => 'Gamayon Incorporation']));
+
+	Mail::to('test@gmail.com')->send($email);
+});*/
 
 // Avatar
 Route::get('getByGender/{gender}', 'AvatarsController@getByGender');

@@ -13,35 +13,7 @@
 @section ('content')
 	<!-- Header start -->
     <header class="office-header" style="height: 600px;">
-		<!-- Navigation start -->
-		<nav class="navbar navbar-default">
-			<div class="container">
-				<!-- Brand Logo start -->
-				<a href="" class="navbar-brand"><img src="images/logo.png"></a>
-				<!-- Brand Logo End -->
-				
-				<div class="navbar-header">
-					<button type="button" onclick="openNav()" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					  <span class="icon-bar"></span>
-					  <span class="icon-bar"></span>
-					  <span class="icon-bar"></span>
-					</button>
-				</div>
-				
-				<div id="myNav" class="overlay">
-					<div class="menu-logo">
-						<a href="index.html"><img src="images/logo.png" /></a>
-					</div>
-					
-					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-					
-					@include ('partials/pages._menu')
-				</div>
-						
-				<!--End Nav-->
-			</div>
-		</nav>
-		<!-- Navigation End -->
+		@include ('partials/pages._menu')
 		
 		<div class="container">
 			<div class="row">

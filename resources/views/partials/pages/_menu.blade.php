@@ -4,7 +4,6 @@
 		<a href="{{ url('/') }}" class="navbar-brand"><img src="images/logo.png"></a>
 		<!-- Brand Logo End -->
 		
-		
 		<div class="navbar-header" onclick="openNav()">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 			  <span class="icon-bar"></span>

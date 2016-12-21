@@ -65,6 +65,9 @@ class UsersController extends Controller
 
             Auth::login($user, true);
 
+            // Send email
+            Mail::to($user->email)->send(new WelcomeToGoBrunch($user));
+
             // Fire the events
             $this->eventsWhoseOnlineAndFriendList();
 

@@ -25,8 +25,6 @@ class PagesController extends Controller
 
     public function index()
     {
-        // return phpinfo();
-
     	// return view('pages.index');
         return view('pages.home');
     }

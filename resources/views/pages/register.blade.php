@@ -11,36 +11,7 @@
 @section ('content')
 	<!-- Header start -->
     <header class="account-header">
-		<!-- Navigation start -->
-		<nav class="navbar navbar-default">
-			<div class="container">
-				<!-- Brand Logo start -->
-				<a href="{{ url('/') }}" class="navbar-brand"><img src="{{ asset('images/logo.png') }}"></a>
-				<!-- Brand Logo End -->
-				
-				<div class="navbar-header">
-					<button type="button" onclick="openNav()" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					  <span class="icon-bar"></span>
-					  <span class="icon-bar"></span>
-					  <span class="icon-bar"></span>
-					</button>
-				</div>
-				
-				<div id="myNav" class="overlay">
-					<div class="menu-logo">
-						<a href="index.html"><img src="{{ asset('images/logo.png') }}" /></a>
-					</div>
-					
-					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-					
-					@include ('partials/pages._menu')
-				</div>
-						
-				<!--End Nav-->
-			</div>
-		</nav>
-		<!-- Navigation End -->
-		
+		@include ('partials/pages._menu')
     </header>
 	<!-- Header start -->
 	

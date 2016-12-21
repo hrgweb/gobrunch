@@ -7,26 +7,7 @@
 @section ('content')
 	<!-- Header start -->
     <header class="account-header">
-		<!-- Navigation start -->
-		<nav class="navbar navbar-default">
-			<div class="container">
-				<!-- Brand Logo start -->
-				<a href="{{ url('/') }}" class="navbar-brand"><img src="images/logo.png"></a>
-				<!-- Brand Logo End -->
-				
-				
-				<div class="navbar-header" onclick="openNav()">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					  <span class="icon-bar"></span>
-					  <span class="icon-bar"></span>
-					  <span class="icon-bar"></span>
-					</button>
-				</div>
-				
-				@include ('partials/pages._menu')
-			</div>
-		</nav>
-		<!-- Navigation End -->
+		@include ('partials/pages._menu')
     </header>
 	<!-- Header start -->
 	
