@@ -235,6 +235,15 @@ var Register = {
 					.fail(function(error) {
 						self.errorTemplate(error);
 						self.updateValueAndDisableUserButton('insert', false);
+
+						// next step div
+						var step1 = $('div.step1');
+						var step2 = $('div.step2');
+
+						if (step1.is(':visible')) {
+							step1.hide();
+							step2.show();
+						}
 					});
 				} else {
 					alert('Not a valid image file. Please select your avatar or upload a valid image file.');
