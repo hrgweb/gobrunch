@@ -11,7 +11,7 @@
 		<nav class="navbar navbar-default">
 			<div class="container">
 				<!-- Brand Logo start -->
-				<a href="" class="navbar-brand"><img src="images/logo.png"></a>
+				<a href="{{ url('/') }}" class="navbar-brand"><img src="images/logo.png"></a>
 				<!-- Brand Logo End -->
 				
 				<div class="navbar-header text-right">
@@ -25,7 +25,7 @@
 				
 				<div id="myNav" class="overlay">
 					<div class="menu-logo">
-						<a href="index.html"><img src="images/logo.png" /></a>
+						<a href="{{ url('/') }}"><img src="images/logo.png" /></a>
 					</div>
 					
 					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -63,7 +63,7 @@
 @endsection
 
 @section ('footer')
-	<script type="text/javascript">
+	<script>
 		$('body').addClass('home-page');
 	</script>
 @endsection

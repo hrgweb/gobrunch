@@ -44,3 +44,10 @@ ul.pagination a:hover { cursor: pointer; }
 /*=============== Next Events - Buttons ===============*/ 
 .nxt-btn-join { background: #005d68; }
 .nxt-btn-enter { background: #debc05; }
+
+/*=============== HOME, ABOUT and CONTACT - Change the responsiveness of the top image ===============*/ 
+.home-login-header,
+.about-header,
+.contact-header {
+	background-size: 100% 100%;
+}
