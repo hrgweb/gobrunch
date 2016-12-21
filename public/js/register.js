@@ -19,6 +19,7 @@ var Register = {
 		this.avatarClick();
 		this.avatarChange();
 		this.nextStep();
+		this.goBack();
 		this.register();
 		this.onLoad();
 		this.selectCountry();
@@ -119,6 +120,21 @@ var Register = {
 			if (step1.is(':visible')) {
 				step1.hide();
 				step2.show();
+			}
+		});
+	},
+	goBack: function() {
+		var self = this;
+
+		$('a#goback').on('click', function() {
+			var step1 = $('div.step1');
+			var step2 = $('div.step2');
+
+			if (step2.is(':visible')) {
+				step1.show();
+				step2.hide();
+
+				self.disableElementsInForm(false);
 			}
 		});
 	},
@@ -235,15 +251,6 @@ var Register = {
 					.fail(function(error) {
 						self.errorTemplate(error);
 						self.updateValueAndDisableUserButton('insert', false);
-
-						// next step div
-						var step1 = $('div.step1');
-						var step2 = $('div.step2');
-
-						if (step1.is(':visible')) {
-							step1.hide();
-							step2.show();
-						}
 					});
 				} else {
 					alert('Not a valid image file. Please select your avatar or upload a valid image file.');

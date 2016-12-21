@@ -83,6 +83,10 @@
 						</div>
 						
 						<div class="step2" style="display: none;">
+							<div class="form-group">
+								<a href="#" id="goback"><b>GO BACK</b></a>
+							</div>
+
 							{{-- error list --}}
 							@include ('errors._list')
 
